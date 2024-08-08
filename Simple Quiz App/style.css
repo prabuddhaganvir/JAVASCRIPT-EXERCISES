@@ -7,17 +7,6 @@
 body{
     background-color: rgb(189, 187, 232);
 }
-.app{
-    /* background-color: white;
-    width: 90%;
-    max-width: 600px;
-    margin: 100px auto 0 ;
-    border-radius: 10px;*/
-    /* padding: 30px;  */
-  
-
-    
-}
 .app h1{
     font-size: 25px;
     color: white;
@@ -52,7 +41,6 @@ body{
     border-radius: 4px;
     cursor: pointer;
     transition: all 0.2s ;
-    /* margin-left: 120px; */
 }
 .btn:hover:not([disabled]){
     background: #00000065;
