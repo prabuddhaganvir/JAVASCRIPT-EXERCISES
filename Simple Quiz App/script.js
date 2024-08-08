@@ -5,7 +5,7 @@ const questions = [
             {text:"A. Hyper Text Mockup language",correct:true},
             {text:"B. High Text Modern language", correct:false},
             {text:"C. Hige Text Medium language",correct:false},
-            {text:"D.High Texc Medium level", correct:false},
+            {text:"D.High Text Medium level", correct:false},
         ]
     },
     {

@@ -85,3 +85,9 @@ body{
         margin-left: 0px;
     }
 }
+@media screen and (max-width:427px){
+    .btn{
+        width: 80vw;
+      
+    }
+}
