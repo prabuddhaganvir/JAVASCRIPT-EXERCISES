@@ -1,0 +1,32 @@
+body{
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.stopWatch{
+    width: 90%;
+    max-width: 600px;
+    background-color: olive;
+    text-align: center;
+    padding: 40px 0;
+    margin: 200px auto 0;
+    border-radius: 15px;
+}
+.stopWatch h1{
+    font-size: 64px;
+    margin-top: 60px;
+    font-weight: 300;
+    color: white;
+}
+.buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.buttons button{
+    margin: 0 20px;
+    cursor: pointer;
+    padding: 20px 50px;
+    font-size: large;
+    border-radius: 20px;
+}
