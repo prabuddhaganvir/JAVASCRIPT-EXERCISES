@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hide and Show Password</title>
+</head>
+<body>
+    <style>
+        body{
+            background-color: rgb(111, 111, 241);
+        }
+        .inputBox{
+            background-color: #fff;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 5px;
+            padding: 10px 20px;
+            margin: 300px auto;
+            display: flex;
+            align-items: center;
+
+        }
+        .inputBox input{
+            width: 100%;
+            padding: 10px 0;
+            border: 0;
+            outline: 0;
+            font-size: 24px;
+            color: black;
+        }
+        #show{
+            cursor: pointer;
+        }
+    </style>
+    
+<div class="inputBox">
+    <input type="password" name="" id="password" placeholder="password">
+    <p id="show">Show</p>
+</div>
+
+
+
+
+<script>
+    let show = document.getElementById('show');
+    let password = document.getElementById('password');
+
+    show.onclick =function(){
+        if(password.type == "password"){
+            password.type = "text";
+            show.innerHTML = "Hide"
+        }
+        else{
+            password.type = "password";
+            show.innerHTML = "Show"
+        }
+    }
+</script>
+
+
+</body>
+</html>
