@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Music Player App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    
+<div class="container">
+    <div class="musicPlayer">
+<nav>
+    <div class="circle">
+        <i class="fa-solid fa-angle-left"></i>
+    </div>
+    <div class="circle">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+   
+</nav>
+<img class="song-img" src="https://imgs.search.brave.com/FyfPZzDN7uE12kV3jTs5gE-nXvGDWZ8JvBWzcd38JMQ/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5waXRjaGZvcmsu/Y29tL3Bob3Rvcy82/MWQ1ZmE5MTFiNzEw/ZmI1Y2U0OGVkOWYv/bWFzdGVyL3dfNzc1/LGNfbGltaXQvVGhl/LVdlZWtuZC1EYXdu/LUZNLmpwZw" alt="">
+<h1>Hills</h1>
+<p>The Weeknd</p>
+
+<audio id="song" >
+    <source src="music/The Highlights CD 1 TRACK 10 (320).mp3" type="audio/mpeg">
+</audio>
+
+<input type="range" value="0" id="progress">
+
+<div class="controls">
+    <div><i class="fa-solid fa-backward"></i></div>
+    <div onclick="playPause()"><i class="fa-solid fa-play" id="controlIcon"></i></div>
+    <div><i class="fa-solid fa-forward"></i></div>
+</div>
+    </div>
+</div>
+
+
+<script>
+ let progress = document.getElementById('progress');
+ let song = document.getElementById('song');
+ let controlIcon = document.getElementById('controlIcon')
+
+song.onloadedmetadata = function(){
+    progress.max = song.duration;
+    progress.value = song.currentTime;
+}
+function playPause(){
+    if(controlIcon.classList.contains("fa-pause")){
+        song.pause();
+        controlIcon.classList.remove("fa-pause")
+        controlIcon.classList.add("fa-play")
+    }
+    else{
+        song.play();
+        controlIcon.classList.remove("fa-play")
+        controlIcon.classList.add("fa-pause")
+    }
+}
+
+if(song.play()){
+    setInterval(()=>{
+        progress.value = song.currentTime
+    },500)
+}
+
+progress.onchange = function(){
+    song.play();
+    song.currentTime = progress.value;
+    controlIcon.classList.remove("fa-pause");
+    controlIcon.classList.add("fa-play");
+}
+
+</script>
+
+
+</body>
+</html>
