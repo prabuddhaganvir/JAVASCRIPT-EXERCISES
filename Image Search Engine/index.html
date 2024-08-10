@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ImageX Seach Engine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>ImageX Search</h1>
+
+    <form action="
+    " id="searchForm">
+    <input type="text" name="" id="searchBox" placeholder="Search Image">
+    <button> Search </button>
+</form>
+
+<div id="searchResult"></div>
+<button id="showMoreBtn">More</button>
+
+
+<footer>
+    <p>Developed by Prabuddha</p>
+</footer>
+
+
+<script>
+ const accessKey = "vJqWUHZao8lwdCV2GgXGfDChRqqdzhU2OATSWLOJZ9U";
+const searchForm = document.getElementById('searchForm');
+const searchBox = document.getElementById('searchBox');
+const searchResult = document.getElementById('searchResult');
+const showMoreBtn = document.getElementById('showMoreBtn');
+
+
+async function searchImage() {
+    keyword = searchBox.value;
+    const url = `https://api.unsplash.com/search/photos?page=${page}&query=${keyword}&client_id=${accessKey}&per_page=12`;
+    
+    const response = await fetch(url);
+    const data = await response.json();
+
+    const results = data.results;
+
+    results.map((result)=>{
+        const image = document.createElement('img');
+        image.src = result.urls.small;
+        const imageLink = document.createElement("a");
+        imageLink.href = result.links.html;
+        imageLink.target = "_blank";
+
+        imageLink.appendChild(image);
+        searchResult.appendChild(imageLink);
+    })
+    showMoreBtn.style.display = "block";
+
+
+
+}
+
+searchForm.addEventListener("submit",(e)=>{
+    e.preventDefault();
+    page = 1;
+    searchImage();
+})
+
+showMoreBtn.addEventListener('click',()=>{
+    page++;
+    searchImage();
+})
+
+</script>
+
+</body>
+</html>
